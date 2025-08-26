@@ -2,7 +2,7 @@ name: Deploy Vite app to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # or master if that’s your branch
+    branches: [ main ]   # or master if that's your default branch
 
 jobs:
   build:
@@ -15,10 +15,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm install vite @vitejs/plugin-react --save-dev && npm install
 
       - name: Build project
         run: npm run build
