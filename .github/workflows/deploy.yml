@@ -2,7 +2,7 @@ name: Deploy Vite app to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # change if your branch is 'master'
+    branches: [ main ]   # change if your branch is master
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
           npm install vite @vitejs/plugin-react --save-dev
 
       - name: Build project
-        run: npx vite build   # 👈 use npx instead of npm run build
+        run: node ./node_modules/vite/bin/vite.js build   # 👈 bypass shell, run vite via Node
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
