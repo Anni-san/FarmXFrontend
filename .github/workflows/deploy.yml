@@ -2,20 +2,20 @@ name: Deploy Vite app to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]   # or master if that’s your branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'   # enables dependency caching
+          node-version: 18
+          cache: npm
 
       - name: Install dependencies
         run: npm install
